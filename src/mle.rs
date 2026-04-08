@@ -1,4 +1,7 @@
-fn optimized (r : &[F]) -> Vec<F>{
+use crate::field::F;
+use ark_ff::{Zero, One};
+
+fn optimized (r : &[F]) -> Vec<F> {
    
     let mut weights = vec![F::one()];
 
@@ -18,14 +21,14 @@ fn optimized (r : &[F]) -> Vec<F>{
     weights
 }
 
-fn mle (x : &[F], table : &[(Vec<u8>, F)]) -> F {
+pub fn mle (x : &[F], table : &Vec<F>) -> F {
 
     let weights = optimized(x);
     
     let mut result = F::zero();
     
-    for (i, (_, fb)) in table.iter().enumerate() {
-        result += *fb * weights[i];
+    for (i, val) in table.iter().enumerate() {
+        result += *val * weights[i];
     }
     result
 }
