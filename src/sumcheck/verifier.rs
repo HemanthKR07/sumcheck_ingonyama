@@ -35,11 +35,11 @@ impl SumCheckVerifier {
 
             random_variables.push(r_var);
 
-            println!("Next random variable at {} : {:?}", round, r_var);
+            println!("Random variable at {} : {:?}", round, r_var);
             
             claim = (F::one() - r_var) * g0 + r_var * g1;
 
-            println!("Claim for next round : {:?}", claim);
+           println!("Claim for next round : {:?}", claim);
         }
 
         let final_check = mle(&random_variables, &prover.table);

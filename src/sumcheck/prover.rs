@@ -20,6 +20,7 @@ impl SumCheck {
         for val in &self.table {
             sum += *val;
         }
+        println!("sum : {:?}", sum);
         sum
     } 
 
@@ -48,6 +49,8 @@ impl SumCheck {
                 point1.push(F::from(*bit as u64));
             }
 
+            println!("g0 : {:?}", &point0);
+            println!("g1 : {:?}", &point1);
 
             g0 += mle(&point0, &self.table);
             g1 += mle(&point1, &self.table);

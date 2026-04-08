@@ -1,9 +1,18 @@
 [package]
-name = "sumcheck_ingonyama"
+name = "sumcheck-ingonyama"
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
+
+[lib]
+name = "sumcheck_ingonyama"
+path = "src/lib.rs"
 
 [dependencies]
-ark-ff = "0.4"
+ark-ff = "0.4.2"
 ark-std = "0.4"
 rand = "0.8.0"
+
+[[bin]]
+name = "sumcheck-ingonyama"
+path = "src/main.rs"
